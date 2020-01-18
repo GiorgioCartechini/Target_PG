@@ -1,0 +1,10 @@
+#control the physics
+#/control/execute physics.mac
+/physic/addPhysics HADRONTHERAPY_1
+#/tracking/verbose 1
+/run/numberOfThreads 7
+/run/initialize
+/changeTarget/Size 0.0001 100 100 um
+/control/execute gps.mac
+/run/printProgress 1000000
+/run/beamOn 10000000
