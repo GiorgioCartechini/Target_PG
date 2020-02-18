@@ -56,7 +56,7 @@ StackingAction::~StackingAction()
 
 G4ClassificationOfNewTrack StackingAction::ClassifyNewTrack(const G4Track* track)
 {
-		
+	/*	
     if (track->GetDynamicParticle() ->GetPDGcode() == 22) {
 		//G4cout <<track->GetDynamicParticle() ->GetPDGcode() <<"\t" << track->GetParticleDefinition()->GetAtomicNumber() <<"\t" << track->GetParticleDefinition()->GetAtomicMass()<<"\t" <<track -> GetKineticEnergy()/MeV <<"\t" <<track -> GetCreatorProcess() -> GetProcessName()<<"\t"<< track ->GetParentID() << G4endl;
 		//G4cout << "Ciao" << G4endl;
@@ -66,7 +66,7 @@ G4ClassificationOfNewTrack StackingAction::ClassifyNewTrack(const G4Track* track
     	analysis -> FillVertex(vertex_energy/MeV, vertex_pos.getX()/mm, vertex_pos.getY()/mm, vertex_pos.getZ()/mm, vertex_direction.getX(), vertex_direction.getY(), vertex_direction.getZ(),0.,0.);
 	}
         
-	
+	*/
     
     //fEventAction->ResetPassCounter(); //collamaf: at each new track we reset the pass counter
     

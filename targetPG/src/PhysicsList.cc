@@ -59,6 +59,7 @@
 #include "G4IonParametrisedLossModel.hh"
 #include "G4EmProcessOptions.hh"
 #include "G4HadronPhysicsQGSP_BIC_HP.hh"
+#include "G4HadronPhysicsQGSP_BIC_AllHP.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -241,7 +242,7 @@ void PhysicsList::AddPhysicsList(const G4String& name)
       hadronPhys.push_back( new G4EmExtraPhysics());
       hadronPhys.push_back( new G4HadronElasticPhysics());
       hadronPhys.push_back( new G4StoppingPhysics());
-      hadronPhys.push_back( new G4HadronPhysicsQGSP_BIC());
+      hadronPhys.push_back( new G4HadronPhysicsQGSP_BIC_AllHP());
       hadronPhys.push_back( new G4NeutronTrackingCut());
       
       G4cout << "HADRONTHERAPY_2 PHYSICS LIST has been activated" << G4endl;
@@ -258,7 +259,7 @@ void PhysicsList::AddPhysicsList(const G4String& name)
       hadronPhys.push_back( new G4EmExtraPhysics());
       hadronPhys.push_back( new G4HadronElasticPhysics());
       hadronPhys.push_back( new G4StoppingPhysics());
-      hadronPhys.push_back( new G4HadronPhysicsQGSP_BIC());
+      hadronPhys.push_back( new G4HadronPhysicsQGSP_BIC_AllHP());
       hadronPhys.push_back( new G4NeutronTrackingCut());
       
       G4cout << "HADRONTHERAPY_2 PHYSICS LIST has been activated" << G4endl;

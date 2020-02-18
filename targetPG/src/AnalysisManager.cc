@@ -53,49 +53,18 @@ void AnalysisManager::CreateNtuples()
   
   
   //creating a ntuple, containing the information about secondary particles
-  manager -> CreateNtuple("GammaExitTumor", "GammaExitTumor");
-  manager -> CreateNtupleDColumn("Ekin");
-  manager -> CreateNtupleDColumn("PosX");
-  manager -> CreateNtupleDColumn("PosY");
-  manager -> CreateNtupleDColumn("PosZ");
-  manager -> CreateNtupleDColumn("DirX");
-  manager -> CreateNtupleDColumn("DirY");
-  manager -> CreateNtupleDColumn("DirZ");
-  manager -> CreateNtupleDColumn("AngleCrossBeam");
-  manager -> CreateNtupleDColumn("AngleAlongBeam");
-  manager -> FinishNtuple();
-
-  manager -> CreateNtuple("GammaExitAbsorber", "GammaExitAbsorber");
-  manager -> CreateNtupleDColumn("Ekin");
-  manager -> CreateNtupleDColumn("PosX");
-  manager -> CreateNtupleDColumn("PosY");
-  manager -> CreateNtupleDColumn("PosZ");
-  manager -> CreateNtupleDColumn("DirX");
-  manager -> CreateNtupleDColumn("DirY");
-  manager -> CreateNtupleDColumn("DirZ");
-  manager -> CreateNtupleDColumn("AngleCrossBeam");
-  manager -> CreateNtupleDColumn("AngleAlongBeam");
-  manager -> FinishNtuple();
-
+  //manager -> CreateNtuple("InelasticStep", "InelasticStep");
+  //manager -> CreateNtupleDColumn("Step");
+  //manager -> CreateNtupleDColumn("Ekin");
+  //manager -> FinishNtuple();
   
   manager -> CreateNtuple("GammaVertex", "GammaVertex");
   manager -> CreateNtupleDColumn("Ekin");
-  manager -> CreateNtupleDColumn("PosX");
-  manager -> CreateNtupleDColumn("PosY");
-  manager -> CreateNtupleDColumn("PosZ");
-  manager -> CreateNtupleDColumn("DirX");
-  manager -> CreateNtupleDColumn("DirY");
-  manager -> CreateNtupleDColumn("DirZ");
-  manager -> CreateNtupleDColumn("AngleCrossBeam");
-  manager -> CreateNtupleDColumn("AngleAlongBeam");
+  manager -> CreateNtupleDColumn("FinalA");
+  manager -> CreateNtupleDColumn("FinalZ");
+  manager -> CreateNtupleDColumn("Step");
+  manager -> CreateNtupleDColumn("EkinProton");
   manager -> FinishNtuple();
-  
-  
-  //manager -> CreateNtuple("ProtonEkin", "ProtonEkin");
-  //manager -> CreateNtupleDColumn("Ekin");
-  //manager -> CreateNtupleDColumn("PosZ");
-  //manager -> FinishNtuple();
- manager -> CreateH2("0","Ekin Vs PosZ", 100, 0.*mm, 100*mm, 100, 0*MeV, 100*MeV);
 
 
   //manager->SetFirstNtupleId(1);
@@ -122,67 +91,25 @@ void AnalysisManager::OpenFile()
   
 }
 
-
-
-void AnalysisManager::FillExitTumor(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam)
+void AnalysisManager::FillVertex(G4double Ekin, G4int FinalA, G4int FinalZ, G4double Step, G4double EkinProton)
 {
-
   G4AnalysisManager* manager = G4AnalysisManager::Instance();
   manager -> FillNtupleDColumn(0, 0, Ekin);
-  manager -> FillNtupleDColumn(0, 1, PositionX);
-  manager -> FillNtupleDColumn(0, 2, PositionY);
-  manager -> FillNtupleDColumn(0, 3, PositionZ);
-  manager -> FillNtupleDColumn(0, 4, DirectionX);
-  manager -> FillNtupleDColumn(0, 5, DirectionY);
-  manager -> FillNtupleDColumn(0, 6, DirectionZ);
-  manager -> FillNtupleDColumn(0, 7, AngleCrossBeam);
-  manager -> FillNtupleDColumn(0, 8, AngleAlongBeam);
+  manager -> FillNtupleDColumn(0, 1, FinalA);
+  manager -> FillNtupleDColumn(0, 2, FinalZ);
+  manager -> FillNtupleDColumn(0, 3, Step);
+  manager -> FillNtupleDColumn(0, 4, EkinProton);
   manager -> AddNtupleRow(0);
 }
 
-
-void AnalysisManager::FillExitAbsorber(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam)
+/*void AnalysisManager::FillProton(G4double Ekin, G4double Step)
 {
 
   G4AnalysisManager* manager = G4AnalysisManager::Instance();
-  manager -> FillNtupleDColumn(1, 0, Ekin);
-  manager -> FillNtupleDColumn(1, 1, PositionX);
-  manager -> FillNtupleDColumn(1, 2, PositionY);
-  manager -> FillNtupleDColumn(1, 3, PositionZ);
-  manager -> FillNtupleDColumn(1, 4, DirectionX);
-  manager -> FillNtupleDColumn(1, 5, DirectionY);
-  manager -> FillNtupleDColumn(1, 6, DirectionZ);
-  manager -> FillNtupleDColumn(1, 7, AngleCrossBeam);
-  manager -> FillNtupleDColumn(1, 8, AngleAlongBeam);
-  manager -> AddNtupleRow(1);
-}
-
-
-void AnalysisManager::FillVertex(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam)
-{
-
-  G4AnalysisManager* manager = G4AnalysisManager::Instance();
-  manager -> FillNtupleDColumn(2, 0, Ekin);
-  manager -> FillNtupleDColumn(2, 1, PositionX);
-  manager -> FillNtupleDColumn(2, 2, PositionY);
-  manager -> FillNtupleDColumn(2, 3, PositionZ);
-  manager -> FillNtupleDColumn(2, 4, DirectionX);
-  manager -> FillNtupleDColumn(2, 5, DirectionY);
-  manager -> FillNtupleDColumn(2, 6, DirectionZ);
-  manager -> FillNtupleDColumn(2, 7, AngleCrossBeam);
-  manager -> FillNtupleDColumn(2, 8, AngleAlongBeam);
-  manager -> AddNtupleRow(2);
-}
-
-void AnalysisManager::FillProton(G4double Ekin, G4double PositionZ)
-{
-
-  G4AnalysisManager* manager = G4AnalysisManager::Instance();
-  //manager -> FillNtupleDColumn(3, 0, Ekin);
-  //manager -> FillNtupleDColumn(3, 1, PositionZ);
-  //manager -> AddNtupleRow(3);
-  manager -> FillH2(0,PositionZ, Ekin);
-}
+  manager -> FillNtupleDColumn(0, 0, Step);
+  manager -> FillNtupleDColumn(0, 1, Ekin);
+  manager -> AddNtupleRow(0);
+}*/
  
 void AnalysisManager::finish() 
 {   

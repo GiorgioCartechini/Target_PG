@@ -121,6 +121,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     a=30.97*g/mole;
     z=15.;
     G4Element* elP31 = new G4Element ("Phosphorus31", "P31", z, a );
+     
+     a=62.9295975*g/mole;
+     z=29;
+     G4Element* elCu63 = new G4Element ("Copper63", "Cu63", z, a );
+        
+     //31P
+     G4Material*  Cu63 = new G4Material("Cu63", 8.96*g/cm3, 1);
+     Cu63 -> AddElement(elCu63, 1);
     
     //19F
     G4Material* F19 = new G4Material("F19", 1.696*g/cm3, 1);
@@ -133,6 +141,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4Material* TargetMat = G4NistManager::Instance()->FindOrBuildMaterial("G4_BRAIN_ICRP", isotopes);
     TargetMat = P31;
 
+   TargetMat = Cu63;
     
     sTarget = new G4Box("sTarget",
                                      TargetSize.getX()/2.,

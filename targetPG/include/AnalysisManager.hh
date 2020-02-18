@@ -49,15 +49,15 @@ public:
   
   void OpenFile(); //open output file
 
-  void FillExitTumor(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam);
+  //void FillExitTumor(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam);
   // Information about secondary particles
   
-  void FillExitAbsorber(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam);
+  //void FillExitAbsorber(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam);
 
 
-  void FillVertex(G4double Ekin, G4double PositionX, G4double PositionY, G4double PositionZ, G4double DirectionX, G4double DirectionY, G4double DirectionZ, G4double AngleCrossBeam, G4double AngleAlongBeam);
+  void FillVertex(G4double Ekin, G4int FinalA, G4int FinalZ, G4double Step, G4double EkinProton);
 
-  void FillProton(G4double Ekin, G4double PositionZ);
+  //void FillProton(G4double Ekin, G4double Step);
 
   void finish();
   // Close the ROOT file with all the results stored in nutples 
