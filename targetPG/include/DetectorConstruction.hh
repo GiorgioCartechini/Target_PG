@@ -70,6 +70,8 @@ public:
     void SetTargetMaterial(G4String materialChoice);
     // Allows to change the Tumor Material
 
+    G4Material* MaterialWithSingleIsotope( G4String name, G4String symbol, G4double density, G4int Z, G4int A);
+
     void SetTargetSize(G4ThreeVector size);
 
     G4ThreeVector TargetSize;
@@ -88,5 +90,12 @@ private:
   G4VPhysicalVolume* pTarget;
     
   DetectorConstructionMessenger* dMessenger;
+
+  G4Material* TargetMat;
+  G4Material* Cu63;
+  G4Material* Y89;
+  G4Material* Sc45;
+  G4Material* F19;
+  G4Material* Cr50;
 };
 #endif
